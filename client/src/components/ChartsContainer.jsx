@@ -4,7 +4,6 @@ import BarChart from './BarChart';
 import AreaChart from './AreaChart';
 import Wrapper from '../assets/wrappers/ChartsContainer';
 const ChartsContainer = ({ data }) => {
-    console.log(data);
     const [barChart, setBarChart] = useState(true)
     return (
         <Wrapper>

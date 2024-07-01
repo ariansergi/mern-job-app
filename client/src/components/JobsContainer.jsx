@@ -7,7 +7,6 @@ import PageBtnContainer from "./PageBtnContainer"
 
 const JobsContainer = () => {
     const { data } = useAllJobsContext()
-    console.log(data);
     const { jobs, totalJobs, numOfPages } = data
     if (jobs?.length === 0) return <Wrapper><h2>No jobs to display...</h2></Wrapper>
     return (

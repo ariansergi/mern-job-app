@@ -7,7 +7,8 @@ import { nanoid } from 'nanoid';
 import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
 import cloudinary from 'cloudinary';
-
+import helmet from "helmet";
+import mongoSanitize from "express-mongo-sanitize"
 //import middlewares
 import errorHandleMiddleware from "./middleware/errorHandlerMiddleware.js";
 import { authenticateUser } from "./middleware/authMiddleware.js";
@@ -35,6 +36,10 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.static(path.resolve(__dirname, './client/dist')));
 app.use(cookieParser());
 app.use(express.json());
+
+// security packages
+app.use(helmet())
+app.use(mongoSanitize())
 
 // application routes
 app.use("/api/v1/jobs", authenticateUser, jobRouter);
